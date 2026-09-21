@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Colours are declared once, as channel triplets, so Tailwind's
+ * `<alpha-value>` syntax works and dark mode only has to restate the tokens.
+ */
+@layer base {
+  :root {
+    --c-ground: 248 250 252;   /* #f8fafc */
+    --c-surface: 255 255 255;  /* #ffffff */
+    --c-elevated: 255 255 255;
+    --c-border: 226 232 240;   /* #e2e8f0 */
+    --c-text: 15 23 42;        /* #0f172a */
+    --c-muted: 100 116 139;    /* #64748b */
+    --c-accent: 79 70 229;     /* #4f46e5 */
+    --c-accent-soft: 238 242 255;
+    --c-success: 5 150 105;    /* #059669 */
+    --c-warning: 217 119 6;    /* #d97706 */
+    --c-danger: 220 38 38;     /* #dc2626 */
+    color-scheme: light;
+  }
+
+  .dark {
+    --c-ground: 9 12 22;
+    --c-surface: 17 22 35;
+    --c-elevated: 24 31 47;
+    --c-border: 39 48 68;
+    --c-text: 226 232 240;
+    --c-muted: 144 158 179;
+    --c-accent: 129 124 255;
+    --c-accent-soft: 30 32 66;
+    --c-success: 52 199 143;
+    --c-warning: 245 168 60;
+    --c-danger: 248 113 113;
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ground text-ink font-sans antialiased;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-ground;
+  }
+}
+
+@layer utilities {
+  /* Wide tables and diagrams scroll inside their own box, never the page. */
+  .scroll-x {
+    @apply overflow-x-auto;
+    scrollbar-width: thin;
+  }
+}
